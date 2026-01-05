@@ -2,9 +2,9 @@
 name: Sync Fork
 
 on: 
-   push: # push 时触发, 主要是为了测试配置有没有问题
+ 
    schedule: 
-   - cron: '0 0 18 * * ?' # 每3小时触发, 对于一些更新不那么频繁的项目可以设置为每天一次, 低碳一点
+   - cron: '0 0 18 * * ' # 
 jobs: 
   repo-sync: 
     runs-on: ubuntu-latest 
@@ -12,7 +12,7 @@ jobs:
       - uses: TG908/fork-sync@v1.6.3
         with: 
             github_token: ${{ secrets.GITHUB_TOKEN }}  
-            owner: ZhaoUncle # fork gcqi1976 user 
+            owner: gcqi1976 # fork gcqi1976 user 
             head: main # fork https://wget.la/https://raw.githubusercontent.com/gcqi1976/xt/main/others_output.txt branch 
             base: main # https://raw.githubusercontent.com/gcqi1976/gao/refs/heads/master/list.txt branch
 
